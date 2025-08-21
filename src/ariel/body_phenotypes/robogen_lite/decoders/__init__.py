@@ -1,0 +1,1 @@
+"""Decoders for RoboGen Lite body phenotypes.""" 
