@@ -1,0 +1,18 @@
+ariel package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   ariel.body_phenotypes
+
+Module contents
+---------------
+
+.. automodule:: ariel
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -1,0 +1,37 @@
+ariel.body\_phenotypes.robogen\_lite package
+============================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   ariel.body_phenotypes.robogen_lite.modules
+
+Submodules
+----------
+
+ariel.body\_phenotypes.robogen\_lite.config module
+--------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.config
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+ariel.body\_phenotypes.robogen\_lite.constructor module
+-------------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.constructor
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite
+   :members:
+   :show-inheritance:
+   :undoc-members:

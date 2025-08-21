@@ -1,0 +1,45 @@
+ariel.body\_phenotypes.robogen\_lite.modules package
+====================================================
+
+Submodules
+----------
+
+ariel.body\_phenotypes.robogen\_lite.modules.brick module
+---------------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.modules.brick
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+ariel.body\_phenotypes.robogen\_lite.modules.core module
+--------------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.modules.core
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+ariel.body\_phenotypes.robogen\_lite.modules.hinge module
+---------------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.modules.hinge
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+ariel.body\_phenotypes.robogen\_lite.modules.module module
+----------------------------------------------------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.modules.module
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: ariel.body_phenotypes.robogen_lite.modules
+   :members:
+   :show-inheritance:
+   :undoc-members:
