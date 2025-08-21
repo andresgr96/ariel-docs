@@ -43,5 +43,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    :maxdepth: 3
    :caption: Contents:
 
+   Introduction to modular robots <introduction_to_modular_robots/index>
    api
    extra_info
