@@ -29,18 +29,7 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 # -- Autoapi extension -------------------------------------------------------
-autoapi_dirs = ['../../src']
-
-# with open("../../project.yml") as file:
-#     data = yaml.safe_load(file)
-#     namespace = data["revolve2-namespace"]
-#     platform_dependent = [
-#         f"../../{pkg}/{namespace}" for pkg in data["platform_dependent_packages"]
-#     ]
-#     platform_independent = [
-#         f"../../{pkg}/{namespace}" for pkg in data["platform_independent_packages"]
-#     ]
-#     autoapi_dirs = platform_dependent + platform_independent
+autoapi_dirs = ['../../src/ariel']
 
 autoapi_options = [
     "members",
