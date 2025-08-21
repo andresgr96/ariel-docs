@@ -42,7 +42,7 @@ ariel_packages = []
 print(f"Looking for packages in: {ariel_base_path}")
 print(f"Path exists: {os.path.exists(ariel_base_path)}")
 
-if os.path.exists(ariel_base_path):
+if os.path.exists(ariel_base_path) and False:
     # Get all subdirectories in the ariel package
     for item in os.listdir(ariel_base_path):
         item_path = os.path.join(ariel_base_path, item)
