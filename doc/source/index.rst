@@ -45,5 +45,4 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
    Introduction to modular robots <introduction_to_modular_robots/index>
    Contributing guide <contributing_guide/index>
-   api
    extra_info
