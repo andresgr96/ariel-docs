@@ -22,10 +22,38 @@ extensions = ["sphinx.ext.autodoc",
               "sphinx.ext.napoleon", 
               "sphinx.ext.viewcode",
               "sphinx.ext.doctest",
-              "sphinx.ext.duration"]
+              "sphinx.ext.duration",
+              "autoapi.extension"]
 
 templates_path = ['_templates']
 exclude_patterns = []
+
+# -- Autoapi extension -------------------------------------------------------
+autoapi_dirs = ['../../src']
+
+# with open("../../project.yml") as file:
+#     data = yaml.safe_load(file)
+#     namespace = data["revolve2-namespace"]
+#     platform_dependent = [
+#         f"../../{pkg}/{namespace}" for pkg in data["platform_dependent_packages"]
+#     ]
+#     platform_independent = [
+#         f"../../{pkg}/{namespace}" for pkg in data["platform_independent_packages"]
+#     ]
+#     autoapi_dirs = platform_dependent + platform_independent
+
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "special-members",
+    "show-inheritance",
+    "show-inheritance-diagram",
+    "imported-members",
+    "show-module-summary",
+    "titles_only=True",
+]
+autoapi_add_toctree_entry = True
+autoapi_template_dir = "_templates/autoapi"
 
 
 

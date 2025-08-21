@@ -6,8 +6,8 @@ If you intend to contribute you may find this guide helpful. Contributions are h
 ----------------------------
 Publishing your contribution
 ----------------------------
-If you added something to Revolve2 that you would like to share with other people, you can do so by creating a `pull request <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests>`_ (PR) on `GitHub <https://github.com/ci-group/revolve2/pulls>`_.
-The first time you make a contribution to a Revolve2 package your PR should add your name to the ``authors`` list in that package's ``pyproject.toml``.
+If you added something to Ariel that you would like to share with other people, you can do so by creating a `pull request <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests>`_ (PR) on `GitHub <https://github.com/ci-group/Ariel/pulls>`_.
+The first time you make a contribution to a Ariel package your PR should add your name to the ``authors`` list in that package's ``pyproject.toml``.
 **Only open PRs on the** ``development`` **-branch!** And make sure that only your commits are present, otherwise do a rebase.
 
 Note that a general heuristic is, if your addition adds a dependency of another revolve package to the existing dependencies, you might not want to structure it that way.
@@ -23,24 +23,24 @@ Developer installation
 ----------------------
 The normal installation guide applies. You should definitely use :ref:`editable mode<installation/index:Editable Mode>`.
 Using the ``requirements_dev.txt`` allows you to quickly install all packages in editable mode, by executing: ``pip install -r requirements_dev.txt``.
-If you want to uninstall all Revolve2 packages, you can use ``./uninstall.sh``, which uninstall all packages like ``revolve2*``.
+If you want to uninstall all Ariel packages, you can use ``./uninstall.sh``, which uninstall all packages like ``Ariel*``.
 
 ----------------------
 Continuous integration
 ----------------------
-Github Actions is used for continuous integration(CI). You can find plenty of resources about the CI online. It is located in the revolve directory at ``.github/workflows``.
+Github Actions is used for continuous integration(CI). You can find plenty of resources about the CI online. It is located in the Ariel directory at ``.github/workflows``.
 You cannot directly run the CI configuration locally, but scripts are available to run the tools.
 
 ----------
 Code tools
 ----------
-Revolve2 code quality is checked by a variety of tools. See the ``codetools`` directory.
+Ariel code quality is checked by a variety of tools. See the ``codetools`` directory.
 The CI runs these tools automatically.
 A shorthand for running the tools and applying as many automatic fixes as possible is ``./codetools/fix_all.sh``.
 Not all problems can be fixed automatically, but the errors should be self explanatory.
 Make sure to regularly run the tools during development (at least mypy), as they can help you detect many mistakes early.
 
-.. list-table:: Revolve2 code tools
+.. list-table:: Ariel code tools
    :widths: 1 4
    :header-rows: 1
 
