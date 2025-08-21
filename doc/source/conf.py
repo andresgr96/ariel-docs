@@ -81,4 +81,6 @@ autosectionlabel_prefix_document = True
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
+html_logo = "../resources/ariel_logo.png"
+html_favicon = "../resources/ariel.png"
 html_static_path = ['_static']
