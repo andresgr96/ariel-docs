@@ -3,7 +3,7 @@ An introduction to modular robots
 =================================
 This introduction applies to V2 robots. V1 robots are only used internally in CI Group.
 
-.. image:: ../modular_robot.png
+.. image:: ../../resources/modular_robot.png
   :width: 400
   :alt: A V2 modular robot
 
@@ -17,20 +17,20 @@ Modules
 -------
 At the center of the robot lies the core module, which contains the brain.
 
-.. image:: ../core.png
+.. image:: ../../resources/core.png
   :width: 400
   :alt: A core module
 
 Other modules are attached to the core in its sides.
 Brick are passive blocks to which again modules can be attached.
 
-.. image:: ../brick.png
+.. image:: ../../resources/brick.png
   :width: 400
   :alt: A brick module
 
 Active hinges are revolute joints that are controlled by the robot's brain.
 
-.. image:: ../active_hinge.png
+.. image:: ../../resources/active_hinge.png
   :width: 400
   :alt: An active hinge module
 
