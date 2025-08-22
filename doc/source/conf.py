@@ -23,8 +23,8 @@ extensions = ["sphinx.ext.autodoc",
               "sphinx.ext.viewcode",
               "sphinx.ext.doctest",
               "sphinx.ext.duration",
-              "sphinx.ext.autosectionlabel",
-              "autoapi.extension"]
+              "sphinx.ext.autosectionlabel"]
+            #   "autoapi.extension"]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -88,7 +88,7 @@ autosectionlabel_prefix_document = True
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
 html_logo = "../resources/ariel_logo.png"
 html_favicon = "../resources/ariel_logo.png"
 html_static_path = ['_static']
