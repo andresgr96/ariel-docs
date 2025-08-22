@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ariel.body_phenotypes.robogen_lite.config &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/ariel_logo.png"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ariel.body_phenotypes.robogen_lite.config</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ariel.body_phenotypes.robogen_lite.config</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;High-level configuration for Robogen Lite body phenotypes.</span>
+
+<span class="sd">Date:       2025-06-25</span>
+<span class="sd">Status:     To Improve ⬆️</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">    * Using Enums ensures that the same naming is used across the codebase.</span>
+
+<span class="sd">Todo</span>
+<span class="sd">----</span>
+<span class="sd">    [ ] Extend ALLOWED_FACES to include TOP and BOTTOM faces.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Standard library</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="c1"># Third-party libraries</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<div class="viewcode-block" id="ModuleType">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleType">[docs]</a>
+<span class="k">class</span> <span class="nc">ModuleType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for module types.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ModuleType.CORE">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleType.CORE">[docs]</a>
+    <span class="n">CORE</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ModuleType.BRICK">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleType.BRICK">[docs]</a>
+    <span class="n">BRICK</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="ModuleType.HINGE">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleType.HINGE">[docs]</a>
+    <span class="n">HINGE</span> <span class="o">=</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="ModuleType.NONE">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleType.NONE">[docs]</a>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="mi">3</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ModuleFaces">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces">[docs]</a>
+<span class="k">class</span> <span class="nc">ModuleFaces</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for module attachment points.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ModuleFaces.FRONT">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.FRONT">[docs]</a>
+    <span class="n">FRONT</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ModuleFaces.BACK">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BACK">[docs]</a>
+    <span class="n">BACK</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="ModuleFaces.RIGHT">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.RIGHT">[docs]</a>
+    <span class="n">RIGHT</span> <span class="o">=</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="ModuleFaces.LEFT">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.LEFT">[docs]</a>
+    <span class="n">LEFT</span> <span class="o">=</span> <span class="mi">3</span></div>
+
+<div class="viewcode-block" id="ModuleFaces.TOP">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.TOP">[docs]</a>
+    <span class="n">TOP</span> <span class="o">=</span> <span class="mi">4</span></div>
+
+<div class="viewcode-block" id="ModuleFaces.BOTTOM">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BOTTOM">[docs]</a>
+    <span class="n">BOTTOM</span> <span class="o">=</span> <span class="mi">5</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ModuleRotationsIdx">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx">[docs]</a>
+<span class="k">class</span> <span class="nc">ModuleRotationsIdx</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for module rotations as indices.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_0">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_0">[docs]</a>
+    <span class="n">DEG_0</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_45">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_45">[docs]</a>
+    <span class="n">DEG_45</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_90">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_90">[docs]</a>
+    <span class="n">DEG_90</span> <span class="o">=</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_135">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_135">[docs]</a>
+    <span class="n">DEG_135</span> <span class="o">=</span> <span class="mi">3</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_180">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_180">[docs]</a>
+    <span class="n">DEG_180</span> <span class="o">=</span> <span class="mi">4</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_225">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_225">[docs]</a>
+    <span class="n">DEG_225</span> <span class="o">=</span> <span class="mi">5</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_270">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_270">[docs]</a>
+    <span class="n">DEG_270</span> <span class="o">=</span> <span class="mi">6</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsIdx.DEG_315">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_315">[docs]</a>
+    <span class="n">DEG_315</span> <span class="o">=</span> <span class="mi">7</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ModuleRotationsTheta">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta">[docs]</a>
+<span class="k">class</span> <span class="nc">ModuleRotationsTheta</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for module rotations in degrees.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_0">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_0">[docs]</a>
+    <span class="n">DEG_0</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_45">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_45">[docs]</a>
+    <span class="n">DEG_45</span> <span class="o">=</span> <span class="mi">45</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_90">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_90">[docs]</a>
+    <span class="n">DEG_90</span> <span class="o">=</span> <span class="mi">90</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_135">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_135">[docs]</a>
+    <span class="n">DEG_135</span> <span class="o">=</span> <span class="mi">135</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_180">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_180">[docs]</a>
+    <span class="n">DEG_180</span> <span class="o">=</span> <span class="mi">180</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_225">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_225">[docs]</a>
+    <span class="n">DEG_225</span> <span class="o">=</span> <span class="mi">225</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_270">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_270">[docs]</a>
+    <span class="n">DEG_270</span> <span class="o">=</span> <span class="mi">270</span></div>
+
+<div class="viewcode-block" id="ModuleRotationsTheta.DEG_315">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_315">[docs]</a>
+    <span class="n">DEG_315</span> <span class="o">=</span> <span class="mi">315</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ModuleInstance">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleInstance">[docs]</a>
+<span class="k">class</span> <span class="nc">ModuleInstance</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ModuleInstance represents a single module in the system.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    BaseModel : pydantic.BaseModel</span>
+<span class="sd">        The base model class from Pydantic.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ModuleInstance.type">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.type">[docs]</a>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">ModuleType</span></div>
+
+<div class="viewcode-block" id="ModuleInstance.rotation">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.rotation">[docs]</a>
+    <span class="n">rotation</span><span class="p">:</span> <span class="n">ModuleRotationsIdx</span></div>
+
+<div class="viewcode-block" id="ModuleInstance.links">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.links">[docs]</a>
+    <span class="n">links</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ModuleFaces</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></div>
+</div>
+
+
+
+<span class="c1"># Define allowed faces for each module type</span>
+<div class="viewcode-block" id="ALLOWED_FACES">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ALLOWED_FACES">[docs]</a>
+<span class="n">ALLOWED_FACES</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ModuleType</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">ModuleFaces</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">CORE</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">FRONT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">BACK</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">TOP</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">BRICK</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">FRONT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">TOP</span><span class="p">,</span>
+        <span class="n">ModuleFaces</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">HINGE</span><span class="p">:</span> <span class="p">[</span><span class="n">ModuleFaces</span><span class="o">.</span><span class="n">FRONT</span><span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span> <span class="p">[],</span>
+<span class="p">}</span></div>
+
+
+<span class="c1"># Define allowed rotations for each module type</span>
+<div class="viewcode-block" id="ALLOWED_ROTATIONS">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.ALLOWED_ROTATIONS">[docs]</a>
+<span class="n">ALLOWED_ROTATIONS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">ModuleType</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">ModuleRotationsIdx</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">CORE</span><span class="p">:</span> <span class="p">[</span><span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_0</span><span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">BRICK</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_0</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_45</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_90</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_135</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_180</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_225</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_270</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_315</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">HINGE</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_0</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_45</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_90</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_135</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_180</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_225</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_270</span><span class="p">,</span>
+        <span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_315</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">ModuleType</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span> <span class="p">[</span><span class="n">ModuleRotationsIdx</span><span class="o">.</span><span class="n">DEG_0</span><span class="p">],</span>
+<span class="p">}</span></div>
+
+
+<span class="c1"># Global constants</span>
+<div class="viewcode-block" id="IDX_OF_CORE">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.IDX_OF_CORE">[docs]</a>
+<span class="n">IDX_OF_CORE</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+
+<span class="c1"># Derived system parameters</span>
+<div class="viewcode-block" id="NUM_OF_TYPES_OF_MODULES">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.NUM_OF_TYPES_OF_MODULES">[docs]</a>
+<span class="n">NUM_OF_TYPES_OF_MODULES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ModuleType</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NUM_OF_FACES">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.NUM_OF_FACES">[docs]</a>
+<span class="n">NUM_OF_FACES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ModuleFaces</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NUM_OF_ROTATIONS">
+<a class="viewcode-back" href="../../../../autoapi/ariel/body_phenotypes/robogen_lite/config/index.html#ariel.body_phenotypes.robogen_lite.config.NUM_OF_ROTATIONS">[docs]</a>
+<span class="n">NUM_OF_ROTATIONS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ModuleRotationsIdx</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

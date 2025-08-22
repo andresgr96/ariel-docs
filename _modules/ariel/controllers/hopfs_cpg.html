@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ariel.controllers.hopfs_cpg &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/ariel_logo.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ariel.controllers.hopfs_cpg</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ariel.controllers.hopfs_cpg</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Hopf-based Central Pattern Generator (CPG).</span>
+
+<span class="sd">Date:       2025-05-03</span>
+<span class="sd">Status:     In progress ⚙️</span>
+
+<span class="sd">Sources</span>
+<span class="sd">-------</span>
+<span class="sd">    [1] https://www.sciencedirect.com/science/article/pii/S2667379722000353#sec4</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">    *</span>
+
+<span class="sd">Todo</span>
+<span class="sd">----</span>
+<span class="sd">    [ ]</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Third-party libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+<span class="kn">from</span> <span class="nn">rich.progress</span> <span class="kn">import</span> <span class="n">track</span>
+
+<span class="c1"># Type Aliases</span>
+<div class="viewcode-block" id="ArrayLike">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.ArrayLike">[docs]</a>
+<span class="nb">type</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]</span></div>
+
+
+<span class="c1"># Global constants</span>
+<div class="viewcode-block" id="SEED">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.SEED">[docs]</a>
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span></div>
+
+
+<span class="c1"># Global functions</span>
+<div class="viewcode-block" id="RNG">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.RNG">[docs]</a>
+<span class="n">RNG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="HopfCPG">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG">[docs]</a>
+<span class="k">class</span> <span class="nc">HopfCPG</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">num_neurons</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">adjacency_list</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+        <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># --- Inherent parameters --- #</span>
+        <span class="c1"># Number of neurons</span>
+<div class="viewcode-block" id="HopfCPG.num_neurons">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.num_neurons">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_neurons</span> <span class="o">=</span> <span class="n">num_neurons</span></div>
+
+
+        <span class="c1"># Time step</span>
+<div class="viewcode-block" id="HopfCPG.dt">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.dt">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span></div>
+
+
+        <span class="c1"># Learning rate</span>
+<div class="viewcode-block" id="HopfCPG.alpha">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.alpha">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span></div>
+
+
+        <span class="c1"># Coupling coefficient</span>
+<div class="viewcode-block" id="HopfCPG.h">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.h">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span></div>
+
+
+        <span class="c1"># Adjacency list for coupling</span>
+<div class="viewcode-block" id="HopfCPG.adjacency_list">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.adjacency_list">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_list</span> <span class="o">=</span> <span class="n">adjacency_list</span></div>
+
+
+        <span class="c1"># --- Initialize state variables --- #</span>
+<div class="viewcode-block" id="HopfCPG.x">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.x">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">RNG</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_neurons</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HopfCPG.y">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.y">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">RNG</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_neurons</span><span class="p">)</span></div>
+
+
+        <span class="c1"># --- Adjustable parameters --- #</span>
+        <span class="c1"># Angular frequency (1Hz default)</span>
+<div class="viewcode-block" id="HopfCPG.omega">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.omega">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span></div>
+
+
+        <span class="c1"># Amplitude</span>
+<div class="viewcode-block" id="HopfCPG.A">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.A">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_neurons</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span></div>
+
+
+        <span class="c1"># Phase differences</span>
+<div class="viewcode-block" id="HopfCPG.phase_diff">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.phase_diff">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_neurons</span><span class="p">,</span> <span class="n">num_neurons</span><span class="p">))</span></div>
+
+
+        <span class="c1"># Set up ring topology phase differences (neighbors are π/2 apart)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">conn</span> <span class="ow">in</span> <span class="n">adjacency_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">conn</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+
+<div class="viewcode-block" id="HopfCPG.step">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.step">[docs]</a>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a single step of the CPG dynamics.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x : np.ndarray[tuple[int, ...], np.dtype[Any]]</span>
+<span class="sd">            The x state of the CPG neurons after the step.</span>
+<span class="sd">        y : np.ndarray[tuple[int, ...], np.dtype[Any]]</span>
+<span class="sd">            The y state of the CPG neurons after the step.&quot;&quot;&quot;</span>
+        
+        <span class="c1"># Define new state variables</span>
+        <span class="n">new_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">new_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Update states using Euler integration</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">conn</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacency_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">r_squared</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+
+            <span class="c1"># Hopf oscillator dynamics</span>
+            <span class="n">x_dot</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">r_squared</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">y_dot</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">r_squared</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Coupling terms from neighboring oscillators</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">conn</span><span class="p">:</span>
+                <span class="c1"># Rotation matrix for phase difference</span>
+                <span class="n">rot_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+                    <span class="p">[</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                        <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                    <span class="p">],</span>
+                    <span class="p">[</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phase_diff</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                    <span class="p">],</span>
+                <span class="p">])</span>
+
+                <span class="c1"># Apply coupling</span>
+                <span class="n">coupled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">*</span> <span class="n">rot_matrix</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
+                <span class="n">x_dot</span> <span class="o">+=</span> <span class="n">coupled</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">y_dot</span> <span class="o">+=</span> <span class="n">coupled</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Update states using Euler integration</span>
+            <span class="n">new_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_dot</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+            <span class="n">new_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_dot</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">new_x</span><span class="p">,</span> <span class="n">new_y</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="HopfCPG.simulate">
+<a class="viewcode-back" href="../../../autoapi/ariel/controllers/hopfs_cpg/index.html#ariel.controllers.hopfs_cpg.HopfCPG.simulate">[docs]</a>
+    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">]:</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the CPG simulation for a specified number of steps.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        steps : int</span>
+<span class="sd">            The number of simulation steps to perform.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x_history : np.ndarray[tuple[int, ...], np.dtype[Any]]</span>
+<span class="sd">            The history of x states over the simulation.</span>
+<span class="sd">        y_history : np.ndarray[tuple[int, ...], np.dtype[Any]]</span>
+<span class="sd">            The history of y states over the simulation.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Main simulation</span>
+        <span class="n">x_history</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_neurons</span><span class="p">))</span>
+        <span class="n">y_history</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_neurons</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">track</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">)):</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">x_history</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">y_history</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+        <span class="k">return</span> <span class="n">x_history</span><span class="p">,</span> <span class="n">y_history</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

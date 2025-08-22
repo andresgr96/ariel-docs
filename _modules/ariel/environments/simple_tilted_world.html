@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ariel.environments.simple_tilted_world &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/ariel_logo.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ariel.environments.simple_tilted_world</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ariel.environments.simple_tilted_world</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Tilted flat terrain with a specified tilt angle and axis.</span>
+
+<span class="sd">Date:       2025-07-28</span>
+<span class="sd">Status:     Completed ✅</span>
+<span class="sd">Author:     A-lamo (Aron F.)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Third-party libraries</span>
+<span class="kn">import</span> <span class="nn">mujoco</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Local libraries</span>
+<span class="kn">from</span> <span class="nn">ariel.utils.mjspec_ops</span> <span class="kn">import</span> <span class="n">compute_geom_bounding_box</span>
+
+<span class="c1"># Global constants</span>
+<div class="viewcode-block" id="USE_DEGREES">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.USE_DEGREES">[docs]</a>
+<span class="n">USE_DEGREES</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="quaternion_from_axis_angle">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.quaternion_from_axis_angle">[docs]</a>
+<span class="k">def</span> <span class="nf">quaternion_from_axis_angle</span><span class="p">(</span><span class="n">axis</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">angle_deg</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute a unit quaternion from an axis and angle (degrees).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    axis : str</span>
+<span class="sd">        The axis to rotate around, can be &quot;x&quot;, &quot;y&quot;, or &quot;z&quot;.</span>
+<span class="sd">    angle_deg : float</span>
+<span class="sd">        The angle to rotate around the axis, in degrees.</span>
+
+<span class="sd">    Returns </span>
+<span class="sd">    -------</span>
+<span class="sd">    list[float]</span>
+<span class="sd">        A unit quaternion representing the rotation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+    <span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">)</span>
+    <span class="n">half_angle</span> <span class="o">=</span> <span class="n">angle_rad</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">half_angle</span><span class="p">)</span>
+    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">half_angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">axis</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="o">*</span><span class="n">xyz</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="TiltedFlatWorld">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld">[docs]</a>
+<span class="k">class</span> <span class="nc">TiltedFlatWorld</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple MuJoCo world with a flat box floor tilted around the X, Y or Z axis.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">floor_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>  <span class="c1"># meters</span>
+        <span class="n">tilt_degrees</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+        <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a tilted flat world.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        floor_size : tuple[float, float, float], optional</span>
+<span class="sd">            The size of the floor geom, by default (1, 1, 0.1)</span>
+<span class="sd">        tilt_degrees : float, optional</span>
+<span class="sd">            The angle to tilt the floor, by default 10.0</span>
+<span class="sd">        axis : str, optional</span>
+<span class="sd">            The axis to tilt around, by default &quot;y&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Fixed parameters</span>
+        <span class="n">grid_name</span> <span class="o">=</span> <span class="s2">&quot;tilted_grid&quot;</span>
+
+<div class="viewcode-block" id="TiltedFlatWorld.floor_size">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld.floor_size">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">floor_size</span> <span class="o">=</span> <span class="n">floor_size</span></div>
+
+<div class="viewcode-block" id="TiltedFlatWorld.tilt_degrees">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld.tilt_degrees">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tilt_degrees</span> <span class="o">=</span> <span class="n">tilt_degrees</span></div>
+
+<div class="viewcode-block" id="TiltedFlatWorld.axis">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld.axis">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+
+        <span class="c1"># --- Root ---</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjSpec</span><span class="p">()</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">integrator</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mujoco</span><span class="o">.</span><span class="n">mjtIntegrator</span><span class="o">.</span><span class="n">mjINT_IMPLICITFAST</span><span class="p">)</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">compiler</span><span class="o">.</span><span class="n">autolimits</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">compiler</span><span class="o">.</span><span class="n">degree</span> <span class="o">=</span> <span class="n">USE_DEGREES</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">compiler</span><span class="o">.</span><span class="n">balanceinertia</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">compiler</span><span class="o">.</span><span class="n">discardvisual</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">global_</span><span class="o">.</span><span class="n">offheight</span> <span class="o">=</span> <span class="mi">960</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">visual</span><span class="o">.</span><span class="n">global_</span><span class="o">.</span><span class="n">offwidth</span> <span class="o">=</span> <span class="mi">1280</span>
+
+        <span class="c1"># --- Assets ---</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">add_texture</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">grid_name</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="n">mujoco</span><span class="o">.</span><span class="n">mjtTexture</span><span class="o">.</span><span class="n">mjTEXTURE_2D</span><span class="p">,</span>
+            <span class="n">builtin</span><span class="o">=</span><span class="n">mujoco</span><span class="o">.</span><span class="n">mjtBuiltin</span><span class="o">.</span><span class="n">mjBUILTIN_CHECKER</span><span class="p">,</span>
+            <span class="n">rgb1</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
+            <span class="n">rgb2</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>  <span class="c1"># pixels</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>  <span class="c1"># pixels</span>
+        <span class="p">)</span>
+
+        <span class="n">spec</span><span class="o">.</span><span class="n">add_material</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">grid_name</span><span class="p">,</span>
+            <span class="n">textures</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">grid_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">],</span>
+            <span class="n">texrepeat</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+            <span class="n">texuniform</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Add a light</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">worldbody</span><span class="o">.</span><span class="n">add_light</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;light&quot;</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">castshadow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Add the tilted floor</span>
+        <span class="n">spec</span><span class="o">.</span><span class="n">worldbody</span><span class="o">.</span><span class="n">add_geom</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tilted_floor&quot;</span><span class="p">,</span>
+            <span class="nb">type</span><span class="o">=</span><span class="n">mujoco</span><span class="o">.</span><span class="n">mjtGeom</span><span class="o">.</span><span class="n">mjGEOM_PLANE</span><span class="p">,</span>
+            <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">floor_size</span><span class="p">,</span>
+            <span class="n">quat</span><span class="o">=</span><span class="n">quaternion_from_axis_angle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tilt_degrees</span><span class="p">),</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="TiltedFlatWorld.spec">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld.spec">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="n">spec</span></div>
+
+
+<div class="viewcode-block" id="TiltedFlatWorld.spawn">
+<a class="viewcode-back" href="../../../autoapi/ariel/environments/simple_tilted_world/index.html#ariel.environments.simple_tilted_world.TiltedFlatWorld.spawn">[docs]</a>
+    <span class="k">def</span> <span class="nf">spawn</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">mj_spec</span><span class="p">:</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjSpec</span><span class="p">,</span>
+        <span class="n">spawn_position</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">small_gap</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">correct_for_bounding_box</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Spawn a robot at a specific position in the world.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mj_spec : mujoco.MjSpec</span>
+<span class="sd">            The MuJoCo specification for the robot.</span>
+<span class="sd">        spawn_position : list[float, float, float] | None, optional</span>
+<span class="sd">            The position (x, y, z) to spawn the robot at, by default (0, 0, 0)</span>
+<span class="sd">        small_gap : float, optional</span>
+<span class="sd">            A small gap to add to the spawn position, by default 0.0</span>
+<span class="sd">        correct_for_bounding_box : bool, optional</span>
+<span class="sd">            If True, the spawn position will be adjusted to account for the robot&#39;s bounding box,</span>
+<span class="sd">            by default True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">spawn_position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">spawn_position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">correct_for_bounding_box</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">mj_spec</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjData</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+            <span class="n">mujoco</span><span class="o">.</span><span class="n">mj_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">nstep</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">min_corner</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">compute_geom_bounding_box</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            <span class="n">spawn_position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">min_corner</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">spawn_position</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">small_gap</span>
+
+        <span class="n">site</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">worldbody</span><span class="o">.</span><span class="n">add_site</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spawn_position</span><span class="p">))</span>
+
+        <span class="n">attachment</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">attach_body</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">mj_spec</span><span class="o">.</span><span class="n">worldbody</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;robot-&quot;</span><span class="p">)</span>
+
+        <span class="n">attachment</span><span class="o">.</span><span class="n">add_freejoint</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

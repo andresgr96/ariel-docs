@@ -1,0 +1,6 @@
+:py:mod:`analysis`
+============================
+
+.. py:module:: ariel.viz.analysis
+
+

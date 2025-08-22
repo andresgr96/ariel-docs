@@ -1,0 +1,15 @@
+:py:mod:`viewer`
+==============================
+
+.. py:module:: ariel.viz.gui.viewer
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   main_window/index.rst
+
+

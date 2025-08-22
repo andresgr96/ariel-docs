@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>config &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/ariel_logo.png"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="constructor" href="../constructor/index.html" />
+    <link rel="prev" title="gecko" href="../prebuilt_robots/gecko/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../controllers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../environments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tasks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tasks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../viz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">robogen_lite</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/ariel/body_phenotypes/robogen_lite/config/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ariel.body_phenotypes.robogen_lite.config">
+<span id="config"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">config</span></code><a class="headerlink" href="#module-ariel.body_phenotypes.robogen_lite.config" title="Link to this heading"></a></h1>
+<p>High-level configuration for Robogen Lite body phenotypes.</p>
+<p>Date:       2025-06-25
+Status:     To Improve ⬆️</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Using Enums ensures that the same naming is used across the codebase.</p></li>
+</ul>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType" title="ariel.body_phenotypes.robogen_lite.config.ModuleType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleType</span></code></a></p></td>
+<td><p>Enum for module types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces" title="ariel.body_phenotypes.robogen_lite.config.ModuleFaces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleFaces</span></code></a></p></td>
+<td><p>Enum for module attachment points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx" title="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleRotationsIdx</span></code></a></p></td>
+<td><p>Enum for module rotations as indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta" title="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleRotationsTheta</span></code></a></p></td>
+<td><p>Enum for module rotations in degrees.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleInstance" title="ariel.body_phenotypes.robogen_lite.config.ModuleInstance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModuleInstance</span></code></a></p></td>
+<td><p>ModuleInstance represents a single module in the system.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ALLOWED_FACES" title="ariel.body_phenotypes.robogen_lite.config.ALLOWED_FACES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ALLOWED_FACES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ALLOWED_ROTATIONS" title="ariel.body_phenotypes.robogen_lite.config.ALLOWED_ROTATIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ALLOWED_ROTATIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.IDX_OF_CORE" title="ariel.body_phenotypes.robogen_lite.config.IDX_OF_CORE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDX_OF_CORE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_TYPES_OF_MODULES" title="ariel.body_phenotypes.robogen_lite.config.NUM_OF_TYPES_OF_MODULES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NUM_OF_TYPES_OF_MODULES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_FACES" title="ariel.body_phenotypes.robogen_lite.config.NUM_OF_FACES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NUM_OF_FACES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_ROTATIONS" title="ariel.body_phenotypes.robogen_lite.config.NUM_OF_ROTATIONS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NUM_OF_ROTATIONS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ModuleType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+digraph inheritance1db007f606 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Enum&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Create a collection of name/value pairs.&quot;];
+  &quot;ModuleType&quot; [URL=&quot;#ariel.body_phenotypes.robogen_lite.config.ModuleType&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Enum for module types.&quot;];
+  &quot;Enum&quot; -&gt; &quot;ModuleType&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+<p>Enum for module types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleType.CORE">
+<span class="sig-name descname"><span class="pre">CORE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleType.CORE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType.CORE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleType.BRICK">
+<span class="sig-name descname"><span class="pre">BRICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleType.BRICK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType.BRICK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleType.HINGE">
+<span class="sig-name descname"><span class="pre">HINGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleType.HINGE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType.HINGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleType.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleType.NONE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType.NONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ModuleFaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+digraph inheritance5e1f250474 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Enum&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Create a collection of name/value pairs.&quot;];
+  &quot;ModuleFaces&quot; [URL=&quot;#ariel.body_phenotypes.robogen_lite.config.ModuleFaces&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Enum for module attachment points.&quot;];
+  &quot;Enum&quot; -&gt; &quot;ModuleFaces&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+<p>Enum for module attachment points.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.FRONT">
+<span class="sig-name descname"><span class="pre">FRONT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.FRONT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.FRONT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BACK">
+<span class="sig-name descname"><span class="pre">BACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.BACK"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.RIGHT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.LEFT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.TOP">
+<span class="sig-name descname"><span class="pre">TOP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.TOP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.TOP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BOTTOM">
+<span class="sig-name descname"><span class="pre">BOTTOM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleFaces.BOTTOM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces.BOTTOM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ModuleRotationsIdx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+digraph inheritancee9dbecadc2 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Enum&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Create a collection of name/value pairs.&quot;];
+  &quot;ModuleRotationsIdx&quot; [URL=&quot;#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Enum for module rotations as indices.&quot;];
+  &quot;Enum&quot; -&gt; &quot;ModuleRotationsIdx&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+<p>Enum for module rotations as indices.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_0">
+<span class="sig-name descname"><span class="pre">DEG_0</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_45">
+<span class="sig-name descname"><span class="pre">DEG_45</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_45"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_45" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_90">
+<span class="sig-name descname"><span class="pre">DEG_90</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_90"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_90" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_135">
+<span class="sig-name descname"><span class="pre">DEG_135</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_135"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_135" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_180">
+<span class="sig-name descname"><span class="pre">DEG_180</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_180"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_180" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_225">
+<span class="sig-name descname"><span class="pre">DEG_225</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_225"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_225" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_270">
+<span class="sig-name descname"><span class="pre">DEG_270</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_270"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_270" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_315">
+<span class="sig-name descname"><span class="pre">DEG_315</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsIdx.DEG_315"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx.DEG_315" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ModuleRotationsTheta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+digraph inheritanceefa02b6b38 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Enum&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Create a collection of name/value pairs.&quot;];
+  &quot;ModuleRotationsTheta&quot; [URL=&quot;#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Enum for module rotations in degrees.&quot;];
+  &quot;Enum&quot; -&gt; &quot;ModuleRotationsTheta&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
+}
+<p>Enum for module rotations in degrees.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_0">
+<span class="sig-name descname"><span class="pre">DEG_0</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_45">
+<span class="sig-name descname"><span class="pre">DEG_45</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">45</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_45"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_45" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_90">
+<span class="sig-name descname"><span class="pre">DEG_90</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_90"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_90" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_135">
+<span class="sig-name descname"><span class="pre">DEG_135</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">135</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_135"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_135" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_180">
+<span class="sig-name descname"><span class="pre">DEG_180</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">180</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_180"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_180" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_225">
+<span class="sig-name descname"><span class="pre">DEG_225</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">225</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_225"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_225" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_270">
+<span class="sig-name descname"><span class="pre">DEG_270</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">270</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_270"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_270" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_315">
+<span class="sig-name descname"><span class="pre">DEG_315</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">315</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleRotationsTheta.DEG_315"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsTheta.DEG_315" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleInstance">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ModuleInstance</span></span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleInstance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleInstance" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pydantic.BaseModel</span></code></p>
+digraph inheritanced531446c3f {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;ModuleInstance&quot; [URL=&quot;#ariel.body_phenotypes.robogen_lite.config.ModuleInstance&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;ModuleInstance represents a single module in the system.&quot;];
+}
+<p>ModuleInstance represents a single module in the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>BaseModel</strong> (<em>pydantic.BaseModel</em>) – The base model class from Pydantic.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleInstance.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType" title="ariel.body_phenotypes.robogen_lite.config.ModuleType"><span class="pre">ModuleType</span></a></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleInstance.type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleInstance.rotation">
+<span class="sig-name descname"><span class="pre">rotation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx" title="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx"><span class="pre">ModuleRotationsIdx</span></a></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleInstance.rotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.rotation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ModuleInstance.links">
+<span class="sig-name descname"><span class="pre">links</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces" title="ariel.body_phenotypes.robogen_lite.config.ModuleFaces"><span class="pre">ModuleFaces</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ModuleInstance.links"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ModuleInstance.links" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ALLOWED_FACES">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ALLOWED_FACES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType" title="ariel.body_phenotypes.robogen_lite.config.ModuleType"><span class="pre">ModuleType</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleFaces" title="ariel.body_phenotypes.robogen_lite.config.ModuleFaces"><span class="pre">ModuleFaces</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ALLOWED_FACES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ALLOWED_FACES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.ALLOWED_ROTATIONS">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">ALLOWED_ROTATIONS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleType" title="ariel.body_phenotypes.robogen_lite.config.ModuleType"><span class="pre">ModuleType</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx" title="ariel.body_phenotypes.robogen_lite.config.ModuleRotationsIdx"><span class="pre">ModuleRotationsIdx</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#ALLOWED_ROTATIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.ALLOWED_ROTATIONS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.IDX_OF_CORE">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">IDX_OF_CORE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#IDX_OF_CORE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.IDX_OF_CORE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.NUM_OF_TYPES_OF_MODULES">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">NUM_OF_TYPES_OF_MODULES</span></span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#NUM_OF_TYPES_OF_MODULES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_TYPES_OF_MODULES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.NUM_OF_FACES">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">NUM_OF_FACES</span></span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#NUM_OF_FACES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_FACES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.config.NUM_OF_ROTATIONS">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.config.</span></span><span class="sig-name descname"><span class="pre">NUM_OF_ROTATIONS</span></span><a class="reference internal" href="../../../../../_modules/ariel/body_phenotypes/robogen_lite/config.html#NUM_OF_ROTATIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.config.NUM_OF_ROTATIONS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../prebuilt_robots/gecko/index.html" class="btn btn-neutral float-left" title="gecko" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../constructor/index.html" class="btn btn-neutral float-right" title="constructor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

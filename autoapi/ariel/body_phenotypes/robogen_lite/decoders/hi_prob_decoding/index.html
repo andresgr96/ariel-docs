@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hi_prob_decoding &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../../../_static/ariel_logo.png"/>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <link rel="next" title="modules" href="../../modules/index.html" />
+    <link rel="prev" title="decoders" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../controllers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../environments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../tasks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tasks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../viz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">robogen_lite</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">decoders</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hi_prob_decoding</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../_sources/autoapi/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding">
+<span id="hi-prob-decoding"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">hi_prob_decoding</span></code><a class="headerlink" href="#module-ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding" title="Link to this heading"></a></h1>
+<p>Example of high-probability-decoding for graphs.</p>
+<p>Author:     jmdm
+Date:       2025-06-25
+Py Ver:     3.12
+OS:         macOS  Sequoia 15.3.1
+Hardware:   M4 Pro
+Status:     To Improve ⬆️</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Graphs are represented as directed graphs (DiGraph) using NetworkX.</p></li>
+</ul>
+<p class="rubric">References</p>
+<p>[1] <a class="reference external" href="https://networkx.org/documentation/stable/reference/readwrite/generated/networkx.readwrite.json_graph.tree_data.html#networkx.readwrite.json_graph.tree_data">https://networkx.org/documentation/stable/reference/readwrite/generated/networkx.readwrite.json_graph.tree_data.html#networkx.readwrite.json_graph.tree_data</a></p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HighProbabilityDecoder</span></code></a></p></td>
+<td><p>Implements the high-probability-decoding algorithm.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.save_graph_as_json" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.save_graph_as_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_graph_as_json</span></code></a>(→ None)</p></td>
+<td><p>Save a directed graph as a JSON file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.draw_graph" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.draw_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_graph</span></code></a>(→ None)</p></td>
+<td><p>Draw a directed graph.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.SEED" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.SEED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SEED</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.DPI" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.DPI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DPI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.RNG" title="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.RNG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNG</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.SEED">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">SEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">42</span></em><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#SEED"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.SEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.DPI">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">DPI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">300</span></em><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#DPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.DPI" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.RNG">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">RNG</span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#RNG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.RNG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">HighProbabilityDecoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_modules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder" title="Link to this definition"></a></dt>
+<dd><p>Implements the high-probability-decoding algorithm.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.num_modules">
+<span class="sig-name descname"><span class="pre">num_modules</span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.num_modules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.num_modules" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.graph">
+<span class="sig-name descname"><span class="pre">graph</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">networkx.Graph</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.graph" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.probability_matrices_to_graph">
+<span class="sig-name descname"><span class="pre">probability_matrices_to_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_probability_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.typing.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_probability_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.typing.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation_probability_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.typing.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float32</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">networkx.DiGraph</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.probability_matrices_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.probability_matrices_to_graph" title="Link to this definition"></a></dt>
+<dd><p>Convert probability matrices to a graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type_probability_space</strong> (<em>npt.NDArray</em><em>[</em><em>np.float32</em><em>]</em>) – Probability space for module types.</p></li>
+<li><p><strong>connection_probability_space</strong> (<em>npt.NDArray</em><em>[</em><em>np.float32</em><em>]</em>) – Probability space for connections between modules.</p></li>
+<li><p><strong>rotation_probability_space</strong> (<em>npt.NDArray</em><em>[</em><em>np.float32</em><em>]</em>) – Probability space for module rotations.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A graph representing the decoded modules and their connections.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DiGraph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.generate_networkx_graph">
+<span class="sig-name descname"><span class="pre">generate_networkx_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.generate_networkx_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.generate_networkx_graph" title="Link to this definition"></a></dt>
+<dd><p>Generate a NetworkX graph from the decoded graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.decode_probability_to_graph">
+<span class="sig-name descname"><span class="pre">decode_probability_to_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.decode_probability_to_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.decode_probability_to_graph" title="Link to this definition"></a></dt>
+<dd><p>Decode the probability spaces into a graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.set_module_types_and_rotations">
+<span class="sig-name descname"><span class="pre">set_module_types_and_rotations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.set_module_types_and_rotations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.set_module_types_and_rotations" title="Link to this definition"></a></dt>
+<dd><p>Set the module types and rotations using probability spaces.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.apply_connection_constraints">
+<span class="sig-name descname"><span class="pre">apply_connection_constraints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#HighProbabilityDecoder.apply_connection_constraints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.HighProbabilityDecoder.apply_connection_constraints" title="Link to this definition"></a></dt>
+<dd><p>Apply connection constraints to probability spaces.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.save_graph_as_json">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">save_graph_as_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.DiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#save_graph_as_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.save_graph_as_json" title="Link to this definition"></a></dt>
+<dd><p>Save a directed graph as a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>DiGraph</em>) – The directed graph to save.</p></li>
+<li><p><strong>save_file</strong> (<em>Path</em><em> | </em><em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – The file path to save the graph JSON, by default None</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.draw_graph">
+<span class="sig-prename descclassname"><span class="pre">ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.</span></span><span class="sig-name descname"><span class="pre">draw_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.DiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NetworkX</span> <span class="pre">Directed</span> <span class="pre">Graph'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../../../../_modules/ariel/body_phenotypes/robogen_lite/decoders/hi_prob_decoding.html#draw_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.body_phenotypes.robogen_lite.decoders.hi_prob_decoding.draw_graph" title="Link to this definition"></a></dt>
+<dd><p>Draw a directed graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<em>DiGraph</em>) – The directed graph to draw.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – The title of the graph.</p></li>
+<li><p><strong>save_file</strong> (<em>Path</em><em> | </em><em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – The file path to save the graph image, by default None</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="decoders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../modules/index.html" class="btn btn-neutral float-right" title="modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

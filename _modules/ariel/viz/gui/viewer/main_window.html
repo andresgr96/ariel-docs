@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ariel.viz.gui.viewer.main_window &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../../_static/ariel_logo.png"/>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ariel.viz.gui.viewer.main_window</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ariel.viz.gui.viewer.main_window</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QTabWidget</span><span class="p">,</span>
+      <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> 
+        <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
+          <span class="n">QGraphicsScene</span><span class="p">,</span> <span class="n">QGraphicsView</span><span class="p">,</span> <span class="n">QGraphicsItem</span><span class="p">,</span>
+            <span class="n">QGraphicsEllipseItem</span><span class="p">,</span> <span class="n">QGraphicsPathItem</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QPen</span><span class="p">,</span> <span class="n">QBrush</span><span class="p">,</span> <span class="n">QPainterPath</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QRectF</span><span class="p">,</span> <span class="n">QPointF</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="c1"># ========================</span>
+<span class="c1"># Node Editor Components</span>
+<span class="c1"># ========================</span>
+
+<span class="c1"># from QNodeEditor import Node</span>
+<span class="c1"># from QNodeEditor import NodeEditorDialog</span>
+
+<span class="c1"># class AddNode(Node):</span>
+<span class="c1">#     code = 0  # Unique code for each node type</span>
+    
+<span class="c1">#     def create(self):</span>
+<span class="c1">#         self.title = &#39;Addition&#39;  # Set the node title</span>
+        
+<span class="c1">#         self.add_label_output(&#39;Output&#39;)  # Add output socket</span>
+<span class="c1">#         self.add_value_input(&#39;Value 1&#39;)  # Add input socket for first value</span>
+<span class="c1">#         self.add_value_input(&#39;Value 2&#39;)  # Add input socket for second value</span>
+        
+<span class="c1">#     def evaluate(self, values: dict):</span>
+<span class="c1">#         result = values[&#39;Value 1&#39;] + values[&#39;Value 2&#39;]  # Add &#39;Value 1&#39; and &#39;Value 2&#39;</span>
+<span class="c1">#         self.set_output_value(&#39;Output&#39;, result)         # Set as value for &#39;Output&#39;</span>
+
+<span class="c1"># class OutNode(Node):</span>
+<span class="c1">#     code = 1  # Unique code for this node</span>
+
+<span class="c1">#     def create(self):</span>
+<span class="c1">#         self.title = &#39;Output&#39;  # Set the title of the node</span>
+<span class="c1">#         self.add_label_input(&#39;Value&#39;)  # Add input value</span>
+
+
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+<span class="c1">#     app = QApplication(sys.argv)</span>
+
+<span class="c1">#     dialog = NodeEditorDialog()</span>
+<span class="c1">#     # Register both custom nodes</span>
+<span class="c1">#     dialog.editor.available_nodes = {</span>
+<span class="c1">#         &#39;Addition&#39;: AddNode,</span>
+<span class="c1">#         &#39;Output&#39;: OutNode</span>
+<span class="c1">#     }</span>
+<span class="c1">#     dialog.editor.output_node = OutNode</span>
+<span class="c1">#     if dialog.exec():</span>
+<span class="c1">#         print(dialog.result)</span>
+<span class="c1">#         sys.exit(app.exec_())</span>
+
+<span class="c1">#     # Run the PyQt application</span>
+<span class="c1">#     app.exec()</span>
+
+<span class="c1">#     sys.exit(app.exec_())</span>
+
+
+<span class="c1"># ========================</span>
+<span class="c1"># Main GUI</span>
+<span class="c1"># ========================</span>
+
+<span class="c1"># class RobotEvolutionGUI(QMainWindow):</span>
+<span class="c1">#     def __init__(self):</span>
+<span class="c1">#         super().__init__()</span>
+<span class="c1">#         self.setWindowTitle(&quot;Robot Evolution System&quot;)</span>
+<span class="c1">#         self.setGeometry(100, 100, 1000, 700)</span>
+
+<span class="c1">#         self.tab_widget = QTabWidget(self)</span>
+<span class="c1">#         self.setCentralWidget(self.tab_widget)</span>
+
+<span class="c1">#         # Keep your existing selection tab</span>
+<span class="c1">#         self.tab_widget.addTab(self.create_selection_tab(), &quot;Selection Algorithms&quot;)</span>
+
+<span class="c1">#         # Add Node Editor tab</span>
+<span class="c1">#         self.tab_widget.addTab(NodeEditor(), &quot;Node Editor (Experimental)&quot;)</span>
+
+<span class="c1">#     def create_selection_tab(self):</span>
+<span class="c1">#         widget = QWidget()</span>
+<span class="c1">#         layout = QVBoxLayout()</span>
+<span class="c1">#         layout.addWidget(QLabel(&quot;Define Parent and Survivor Selection Types&quot;))</span>
+
+<span class="c1">#         # Mapping for display names and internal names</span>
+<span class="c1">#         self.selection_display_to_internal = {</span>
+<span class="c1">#             &quot;Tournament&quot;: &quot;tournament&quot;,</span>
+<span class="c1">#             &quot;Roulette Wheel&quot;: &quot;roulette&quot;,</span>
+<span class="c1">#             &quot;Top-N&quot;: &quot;topn&quot;</span>
+<span class="c1">#         }</span>
+<span class="c1">#         self.selection_internal_to_display = {v: k for k, v in self.selection_display_to_internal.items()}</span>
+
+<span class="c1">#         # Parent selection dropdown</span>
+<span class="c1">#         self.parent_dropdown = QComboBox()</span>
+<span class="c1">#         self.parent_dropdown.addItems(self.selection_internal_to_display.values())</span>
+<span class="c1">#         self.parent_dropdown.setToolTip(&quot;Click the dropdown to choose the parent selection method to be used by your evolutionary algorithm.&quot;)</span>
+<span class="c1">#         parent_title = QLabel(&quot;Parent Selection: &quot;)</span>
+<span class="c1">#         layout.addWidget(parent_title)</span>
+<span class="c1">#         layout.addWidget(self.parent_dropdown)</span>
+
+<span class="c1">#         # Parent selection parameters</span>
+<span class="c1">#         self.parent_params_layout = QVBoxLayout()</span>
+<span class="c1">#         layout.addLayout(self.parent_params_layout)</span>
+
+<span class="c1">#         # Connect parent dropdown to update function</span>
+<span class="c1">#         self.parent_dropdown.currentIndexChanged.connect(</span>
+<span class="c1">#             lambda: self.update_selection_params(self.parent_dropdown, self.parent_params_layout)</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#         # Survivor selection dropdown</span>
+<span class="c1">#         self.survivor_dropdown = QComboBox()</span>
+<span class="c1">#         self.survivor_dropdown.addItems(self.selection_internal_to_display.values())</span>
+<span class="c1">#         self.survivor_dropdown.setToolTip(&quot;Click the dropdown to choose the survival selection method to be used by your evolutionary algorithm.&quot;)</span>
+<span class="c1">#         layout.addWidget(QLabel(&quot;Survivor Selection:&quot;))</span>
+<span class="c1">#         layout.addWidget(self.survivor_dropdown)</span>
+
+<span class="c1">#         # Survivor selection parameters</span>
+<span class="c1">#         self.survivor_params_layout = QVBoxLayout()</span>
+<span class="c1">#         layout.addLayout(self.survivor_params_layout)</span>
+
+<span class="c1">#         # Connect survivor dropdown to update function</span>
+<span class="c1">#         self.survivor_dropdown.currentIndexChanged.connect(</span>
+<span class="c1">#             lambda: self.update_selection_params(self.survivor_dropdown, self.survivor_params_layout)</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#         widget.setLayout(layout)</span>
+
+<span class="c1">#         # Automatically update parameters for the initial selection</span>
+<span class="c1">#         self.update_selection_params(self.parent_dropdown, self.parent_params_layout)</span>
+<span class="c1">#         self.update_selection_params(self.survivor_dropdown, self.survivor_params_layout)</span>
+
+<span class="c1">#         return widget</span>
+
+<span class="c1">#     def update_selection_params(self, item, params_layout):</span>
+<span class="c1">#         &quot;&quot;&quot;Update the parameter input fields based on the selected function.&quot;&quot;&quot;</span>
+<span class="c1">#         if item is None:</span>
+<span class="c1">#             return</span>
+
+<span class="c1">#         # Clear existing parameter input fields and layouts</span>
+<span class="c1">#         while params_layout.count():</span>
+<span class="c1">#             layout_item = params_layout.takeAt(0)</span>
+<span class="c1">#             if layout_item.widget():</span>
+<span class="c1">#                 layout_item.widget().deleteLater()</span>
+<span class="c1">#             elif layout_item.layout():</span>
+<span class="c1">#                 child_layout = layout_item.layout()</span>
+<span class="c1">#                 while child_layout.count():</span>
+<span class="c1">#                     child_item = child_layout.takeAt(0)</span>
+<span class="c1">#                     if child_item.widget():</span>
+<span class="c1">#                         child_item.widget().deleteLater()</span>
+<span class="c1">#                 child_layout.deleteLater()</span>
+
+<span class="c1">#         # Selection parameters</span>
+<span class="c1">#         selection_params = {</span>
+<span class="c1">#             &quot;tournament&quot;: {&quot;k&quot;: 2},</span>
+<span class="c1">#             &quot;roulette&quot;: {&quot;n&quot;: 1},</span>
+<span class="c1">#             &quot;topn&quot;: {&quot;n&quot;: 1}</span>
+<span class="c1">#         }</span>
+
+<span class="c1">#         # Get the internal name from the display name</span>
+<span class="c1">#         selected_function_display = item.currentText()</span>
+<span class="c1">#         selected_function = self.selection_display_to_internal.get(selected_function_display, None)</span>
+
+<span class="c1">#         if selected_function in selection_params:</span>
+<span class="c1">#             for param, value in selection_params[selected_function].items():</span>
+<span class="c1">#                 input_layout = QHBoxLayout()</span>
+<span class="c1">#                 input_label = QLabel(f&quot;{param}:&quot;)</span>
+<span class="c1">#                 input_field = QLineEdit(str(value))</span>
+<span class="c1">#                 input_layout.addWidget(input_label)</span>
+<span class="c1">#                 input_layout.addWidget(input_field)</span>
+<span class="c1">#                 params_layout.addLayout(input_layout)</span>
+
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+<span class="c1">#     app = QApplication(sys.argv)</span>
+<span class="c1">#     window = RobotEvolutionGUI()</span>
+<span class="c1">#     window.show()</span>
+<span class="c1">#     sys.exit(app.exec_())</span>
+
+<span class="c1">###################### </span>
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QTabWidget</span><span class="p">,</span>
+      <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> 
+        <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
+          <span class="n">QGraphicsScene</span><span class="p">,</span> <span class="n">QGraphicsView</span><span class="p">,</span> <span class="n">QGraphicsItem</span><span class="p">,</span>
+            <span class="n">QGraphicsEllipseItem</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QPen</span><span class="p">,</span> <span class="n">QBrush</span><span class="p">,</span> <span class="n">QPainterPath</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QRectF</span><span class="p">,</span> <span class="n">QPointF</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="c1"># ========================</span>
+<span class="c1"># Node Editor Components</span>
+<span class="c1"># ========================</span>
+
+<div class="viewcode-block" id="Port">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Port">[docs]</a>
+<span class="k">class</span> <span class="nc">Port</span><span class="p">(</span><span class="n">QGraphicsEllipseItem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A small circle that acts as a connection point.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">QBrush</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">darkBlue</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">black</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFlag</span><span class="p">(</span><span class="n">QGraphicsItem</span><span class="o">.</span><span class="n">ItemSendsScenePositionChanges</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Port.scenePosCenter">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Port.scenePosCenter">[docs]</a>
+    <span class="k">def</span> <span class="nf">scenePosCenter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return center position of the port in scene coordinates.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">scenePos</span><span class="p">()</span> <span class="o">+</span> <span class="n">QPointF</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Connection">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Connection">[docs]</a>
+<span class="k">class</span> <span class="nc">Connection</span><span class="p">(</span><span class="n">QGraphicsPathItem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bezier curve between two ports.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port1</span><span class="p">,</span> <span class="n">port2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<div class="viewcode-block" id="Connection.port1">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Connection.port1">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port1</span> <span class="o">=</span> <span class="n">port1</span></div>
+
+<div class="viewcode-block" id="Connection.port2">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Connection.port2">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port2</span> <span class="o">=</span> <span class="n">port2</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">black</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">QPointF</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># temp path</span>
+
+<div class="viewcode-block" id="Connection.updatePath">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Connection.updatePath">[docs]</a>
+    <span class="k">def</span> <span class="nf">updatePath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mouse_pos</span><span class="p">):</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">port1</span><span class="o">.</span><span class="n">scenePosCenter</span><span class="p">()</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">port2</span><span class="o">.</span><span class="n">scenePosCenter</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">port2</span> <span class="k">else</span> <span class="n">mouse_pos</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">QPainterPath</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">())</span> <span class="o">*</span> <span class="mf">0.5</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">cubicTo</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">()</span> <span class="o">-</span> <span class="n">dx</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">(),</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">(),</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Node">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Node">[docs]</a>
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">QGraphicsEllipseItem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A draggable node with a port.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">yellow</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFlag</span><span class="p">(</span><span class="n">QGraphicsItem</span><span class="o">.</span><span class="n">ItemIsMovable</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFlag</span><span class="p">(</span><span class="n">QGraphicsItem</span><span class="o">.</span><span class="n">ItemIsSelectable</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Add a port</span>
+<div class="viewcode-block" id="Node.port">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.Node.port">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">Port</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>  <span class="c1"># right side middle</span></div>
+
+
+
+<div class="viewcode-block" id="NodeEditor">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor">[docs]</a>
+<span class="k">class</span> <span class="nc">NodeEditor</span><span class="p">(</span><span class="n">QGraphicsView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<div class="viewcode-block" id="NodeEditor.scene">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.scene">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span> <span class="o">=</span> <span class="n">QGraphicsScene</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setScene</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setRenderHint</span><span class="p">(</span><span class="n">QPainter</span><span class="o">.</span><span class="n">Antialiasing</span><span class="p">)</span>
+
+        <span class="c1"># Add some test nodes</span>
+<div class="viewcode-block" id="NodeEditor.node1">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.node1">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node1</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="NodeEditor.node2">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.node2">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node2</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NodeEditor.temp_connection">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.temp_connection">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># store temp connection</span></div>
+
+
+<div class="viewcode-block" id="NodeEditor.mousePressEvent">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.mousePressEvent">[docs]</a>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemAt</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Port</span><span class="p">):</span>
+            <span class="c1"># Start a new connection</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mousePressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NodeEditor.mouseMoveEvent">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.mouseMoveEvent">[docs]</a>
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="p">:</span>
+            <span class="n">mouse_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapToScene</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="o">.</span><span class="n">updatePath</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mouseMoveEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NodeEditor.mouseReleaseEvent">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.NodeEditor.mouseReleaseEvent">[docs]</a>
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">itemAt</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Port</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="o">.</span><span class="n">port1</span><span class="p">:</span>
+                <span class="c1"># Complete connection</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="o">.</span><span class="n">port2</span> <span class="o">=</span> <span class="n">item</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="o">.</span><span class="n">updatePath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapToScene</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">()))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Cancel connection</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">removeItem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_connection</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mouseReleaseEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># ========================</span>
+<span class="c1"># Main GUI</span>
+<span class="c1"># ========================</span>
+
+<div class="viewcode-block" id="RobotEvolutionGUI">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI">[docs]</a>
+<span class="k">class</span> <span class="nc">RobotEvolutionGUI</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Robot Evolution System&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">700</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RobotEvolutionGUI.tab_widget">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.tab_widget">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab_widget</span> <span class="o">=</span> <span class="n">QTabWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tab_widget</span><span class="p">)</span>
+
+        <span class="c1"># Keep your existing selection tab</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab_widget</span><span class="o">.</span><span class="n">addTab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_selection_tab</span><span class="p">(),</span> <span class="s2">&quot;Selection Algorithms&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Add Node Editor tab</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tab_widget</span><span class="o">.</span><span class="n">addTab</span><span class="p">(</span><span class="n">NodeEditor</span><span class="p">(),</span> <span class="s2">&quot;Node Editor (Experimental)&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RobotEvolutionGUI.create_selection_tab">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.create_selection_tab">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_selection_tab</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Define Parent and Survivor Selection Types&quot;</span><span class="p">))</span>
+
+        <span class="c1"># Mapping for display names and internal names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selection_display_to_internal</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Tournament&quot;</span><span class="p">:</span> <span class="s2">&quot;tournament&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Roulette Wheel&quot;</span><span class="p">:</span> <span class="s2">&quot;roulette&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Top-N&quot;</span><span class="p">:</span> <span class="s2">&quot;topn&quot;</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selection_internal_to_display</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_display_to_internal</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1"># Parent selection dropdown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span> <span class="o">=</span> <span class="n">QComboBox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="o">.</span><span class="n">addItems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selection_internal_to_display</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;Click the dropdown to choose the parent selection method to be used by your evolutionary algorithm.&quot;</span><span class="p">)</span>
+        <span class="n">parent_title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Parent Selection: &quot;</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">parent_title</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="p">)</span>
+
+        <span class="c1"># Parent selection parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_params_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_params_layout</span><span class="p">)</span>
+
+        <span class="c1"># Connect parent dropdown to update function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="o">.</span><span class="n">currentIndexChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+            <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_selection_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_params_layout</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Survivor selection dropdown</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span> <span class="o">=</span> <span class="n">QComboBox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="o">.</span><span class="n">addItems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selection_internal_to_display</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s2">&quot;Click the dropdown to choose the survival selection method to be used by your evolutionary algorithm.&quot;</span><span class="p">)</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Survivor Selection:&quot;</span><span class="p">))</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="p">)</span>
+
+        <span class="c1"># Survivor selection parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survivor_params_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">survivor_params_layout</span><span class="p">)</span>
+
+        <span class="c1"># Connect survivor dropdown to update function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="o">.</span><span class="n">currentIndexChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+            <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_selection_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">survivor_params_layout</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">widget</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="c1"># Automatically update parameters for the initial selection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_selection_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent_dropdown</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_params_layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_selection_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">survivor_dropdown</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">survivor_params_layout</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">widget</span></div>
+
+
+<div class="viewcode-block" id="RobotEvolutionGUI.update_selection_params">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.update_selection_params">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_selection_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">params_layout</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the parameter input fields based on the selected function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Clear existing parameter input fields and layouts</span>
+        <span class="k">while</span> <span class="n">params_layout</span><span class="o">.</span><span class="n">count</span><span class="p">():</span>
+            <span class="n">layout_item</span> <span class="o">=</span> <span class="n">params_layout</span><span class="o">.</span><span class="n">takeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">layout_item</span><span class="o">.</span><span class="n">widget</span><span class="p">():</span>
+                <span class="n">layout_item</span><span class="o">.</span><span class="n">widget</span><span class="p">()</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">layout_item</span><span class="o">.</span><span class="n">layout</span><span class="p">():</span>
+                <span class="n">child_layout</span> <span class="o">=</span> <span class="n">layout_item</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span>
+                <span class="k">while</span> <span class="n">child_layout</span><span class="o">.</span><span class="n">count</span><span class="p">():</span>
+                    <span class="n">child_item</span> <span class="o">=</span> <span class="n">child_layout</span><span class="o">.</span><span class="n">takeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">child_item</span><span class="o">.</span><span class="n">widget</span><span class="p">():</span>
+                        <span class="n">child_item</span><span class="o">.</span><span class="n">widget</span><span class="p">()</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+                <span class="n">child_layout</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+
+        <span class="c1"># Selection parameters</span>
+        <span class="n">selection_params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;tournament&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+            <span class="s2">&quot;roulette&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+            <span class="s2">&quot;topn&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Get the internal name from the display name</span>
+        <span class="n">selected_function_display</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">currentText</span><span class="p">()</span>
+        <span class="n">selected_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection_display_to_internal</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected_function_display</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">selected_function</span> <span class="ow">in</span> <span class="n">selection_params</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">param</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">selection_params</span><span class="p">[</span><span class="n">selected_function</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">input_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+                <span class="n">input_label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+                <span class="n">input_field</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+                <span class="n">input_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">input_label</span><span class="p">)</span>
+                <span class="n">input_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">input_field</span><span class="p">)</span>
+                <span class="n">params_layout</span><span class="o">.</span><span class="n">addLayout</span><span class="p">(</span><span class="n">input_layout</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<div class="viewcode-block" id="app">
+<a class="viewcode-back" href="../../../../../autoapi/ariel/viz/gui/viewer/main_window/index.html#ariel.viz.gui.viewer.main_window.app">[docs]</a>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span></div>
+
+    <span class="n">window</span> <span class="o">=</span> <span class="n">RobotEvolutionGUI</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

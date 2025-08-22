@@ -1,0 +1,137 @@
+:py:mod:`main_window`
+==========================================
+
+.. py:module:: ariel.viz.gui.viewer.main_window
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ariel.viz.gui.viewer.main_window.Port
+   ariel.viz.gui.viewer.main_window.Connection
+   ariel.viz.gui.viewer.main_window.Node
+   ariel.viz.gui.viewer.main_window.NodeEditor
+   ariel.viz.gui.viewer.main_window.RobotEvolutionGUI
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ariel.viz.gui.viewer.main_window.app
+
+
+.. py:class:: Port(parent=None, radius=8)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QGraphicsEllipseItem`
+
+   .. autoapi-inheritance-diagram:: ariel.viz.gui.viewer.main_window.Port
+      :parts: 1
+
+
+   A small circle that acts as a connection point.
+
+
+   .. py:method:: scenePosCenter()
+
+      Return center position of the port in scene coordinates.
+
+
+
+.. py:class:: Connection(port1, port2=None)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QGraphicsPathItem`
+
+   .. autoapi-inheritance-diagram:: ariel.viz.gui.viewer.main_window.Connection
+      :parts: 1
+
+
+   Bezier curve between two ports.
+
+
+   .. py:attribute:: port1
+
+
+   .. py:attribute:: port2
+      :value: None
+
+
+
+   .. py:method:: updatePath(mouse_pos)
+
+
+.. py:class:: Node(x, y)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QGraphicsEllipseItem`
+
+   .. autoapi-inheritance-diagram:: ariel.viz.gui.viewer.main_window.Node
+      :parts: 1
+
+
+   A draggable node with a port.
+
+
+   .. py:attribute:: port
+
+
+.. py:class:: NodeEditor
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QGraphicsView`
+
+   .. autoapi-inheritance-diagram:: ariel.viz.gui.viewer.main_window.NodeEditor
+      :parts: 1
+
+
+   .. py:attribute:: scene
+
+
+   .. py:attribute:: node1
+
+
+   .. py:attribute:: node2
+
+
+   .. py:attribute:: temp_connection
+      :value: None
+
+
+
+   .. py:method:: mousePressEvent(event)
+
+
+   .. py:method:: mouseMoveEvent(event)
+
+
+   .. py:method:: mouseReleaseEvent(event)
+
+
+.. py:class:: RobotEvolutionGUI
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QMainWindow`
+
+   .. autoapi-inheritance-diagram:: ariel.viz.gui.viewer.main_window.RobotEvolutionGUI
+      :parts: 1
+
+
+   .. py:attribute:: tab_widget
+
+
+   .. py:method:: create_selection_tab()
+
+
+   .. py:method:: update_selection_params(item, params_layout)
+
+      Update the parameter input fields based on the selected function.
+
+
+
+.. py:data:: app
+

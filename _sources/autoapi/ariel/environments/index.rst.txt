@@ -1,0 +1,26 @@
+:py:mod:`environments`
+============================
+
+.. py:module:: ariel.environments
+
+.. autoapi-nested-parse::
+
+   Environments.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   amphiteater_heightmap/index.rst
+   boxy_heightmap/index.rst
+   crater_heightmap/index.rst
+   djoser_pyramid/index.rst
+   rugged_heightmap/index.rst
+   simple_flat_world/index.rst
+   simple_tilted_world/index.rst
+
+

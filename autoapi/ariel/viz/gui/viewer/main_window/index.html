@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main_window &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../../../_static/ariel_logo.png"/>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <link rel="prev" title="viewer" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../body_phenotypes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../controllers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../environments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../tasks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tasks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viz</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gui</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viewer</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_window</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../_sources/autoapi/ariel/viz/gui/viewer/main_window/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ariel.viz.gui.viewer.main_window">
+<span id="main-window"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">main_window</span></code><a class="headerlink" href="#module-ariel.viz.gui.viewer.main_window" title="Link to this heading"></a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.Port" title="ariel.viz.gui.viewer.main_window.Port"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Port</span></code></a></p></td>
+<td><p>A small circle that acts as a connection point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.Connection" title="ariel.viz.gui.viewer.main_window.Connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Connection</span></code></a></p></td>
+<td><p>Bezier curve between two ports.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.Node" title="ariel.viz.gui.viewer.main_window.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Node</span></code></a></p></td>
+<td><p>A draggable node with a port.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.NodeEditor" title="ariel.viz.gui.viewer.main_window.NodeEditor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NodeEditor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI" title="ariel.viz.gui.viewer.main_window.RobotEvolutionGUI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotEvolutionGUI</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.viz.gui.viewer.main_window.app" title="ariel.viz.gui.viewer.main_window.app"><code class="xref py py-obj docutils literal notranslate"><span class="pre">app</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Port">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">Port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Port" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QGraphicsEllipseItem</span></code></p>
+digraph inheritance50da75443d {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Port&quot; [URL=&quot;#ariel.viz.gui.viewer.main_window.Port&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;A small circle that acts as a connection point.&quot;];
+}
+<p>A small circle that acts as a connection point.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Port.scenePosCenter">
+<span class="sig-name descname"><span class="pre">scenePosCenter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Port.scenePosCenter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Port.scenePosCenter" title="Link to this definition"></a></dt>
+<dd><p>Return center position of the port in scene coordinates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Connection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">Connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Connection" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QGraphicsPathItem</span></code></p>
+digraph inheritance3a27cd0c8f {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Connection&quot; [URL=&quot;#ariel.viz.gui.viewer.main_window.Connection&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Bezier curve between two ports.&quot;];
+}
+<p>Bezier curve between two ports.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Connection.port1">
+<span class="sig-name descname"><span class="pre">port1</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Connection.port1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Connection.port1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Connection.port2">
+<span class="sig-name descname"><span class="pre">port2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Connection.port2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Connection.port2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Connection.updatePath">
+<span class="sig-name descname"><span class="pre">updatePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse_pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Connection.updatePath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Connection.updatePath" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Node">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Node" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QGraphicsEllipseItem</span></code></p>
+digraph inheritancea1b64f54ce {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;Node&quot; [URL=&quot;#ariel.viz.gui.viewer.main_window.Node&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;A draggable node with a port.&quot;];
+}
+<p>A draggable node with a port.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.Node.port">
+<span class="sig-name descname"><span class="pre">port</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#Node.port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.Node.port" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">NodeEditor</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QGraphicsView</span></code></p>
+digraph inheritance813f7c8f56 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;NodeEditor&quot; [URL=&quot;#ariel.viz.gui.viewer.main_window.NodeEditor&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
+}
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.scene">
+<span class="sig-name descname"><span class="pre">scene</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.scene"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.scene" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.node1">
+<span class="sig-name descname"><span class="pre">node1</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.node1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.node1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.node2">
+<span class="sig-name descname"><span class="pre">node2</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.node2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.node2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.temp_connection">
+<span class="sig-name descname"><span class="pre">temp_connection</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.temp_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.temp_connection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.mousePressEvent">
+<span class="sig-name descname"><span class="pre">mousePressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.mousePressEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.mousePressEvent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.mouseMoveEvent">
+<span class="sig-name descname"><span class="pre">mouseMoveEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.mouseMoveEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.mouseMoveEvent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.NodeEditor.mouseReleaseEvent">
+<span class="sig-name descname"><span class="pre">mouseReleaseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#NodeEditor.mouseReleaseEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.NodeEditor.mouseReleaseEvent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.RobotEvolutionGUI">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">RobotEvolutionGUI</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#RobotEvolutionGUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtWidgets.QMainWindow</span></code></p>
+digraph inheritancecc80535ea4 {
+bgcolor=transparent;
+rankdir=LR;
+size=&quot;8.0, 12.0&quot;;
+  &quot;RobotEvolutionGUI&quot; [URL=&quot;#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
+}
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.tab_widget">
+<span class="sig-name descname"><span class="pre">tab_widget</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#RobotEvolutionGUI.tab_widget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.tab_widget" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.create_selection_tab">
+<span class="sig-name descname"><span class="pre">create_selection_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#RobotEvolutionGUI.create_selection_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.create_selection_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.update_selection_params">
+<span class="sig-name descname"><span class="pre">update_selection_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_layout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#RobotEvolutionGUI.update_selection_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.RobotEvolutionGUI.update_selection_params" title="Link to this definition"></a></dt>
+<dd><p>Update the parameter input fields based on the selected function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.viz.gui.viewer.main_window.app">
+<span class="sig-prename descclassname"><span class="pre">ariel.viz.gui.viewer.main_window.</span></span><span class="sig-name descname"><span class="pre">app</span></span><a class="reference internal" href="../../../../../../_modules/ariel/viz/gui/viewer/main_window.html#app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.viz.gui.viewer.main_window.app" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="viewer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

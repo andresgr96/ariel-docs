@@ -1,0 +1,117 @@
+:py:mod:`hopfs_cpg`
+=====================================
+
+.. py:module:: ariel.controllers.hopfs_cpg
+
+.. autoapi-nested-parse::
+
+   Hopf-based Central Pattern Generator (CPG).
+
+   Date:       2025-05-03
+   Status:     In progress ⚙️
+
+   Sources
+   -------
+       [1] https://www.sciencedirect.com/science/article/pii/S2667379722000353#sec4
+
+   .. rubric:: Notes
+
+   *
+
+   .. todo:: [ ]
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ariel.controllers.hopfs_cpg.HopfCPG
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ariel.controllers.hopfs_cpg.ArrayLike
+   ariel.controllers.hopfs_cpg.SEED
+   ariel.controllers.hopfs_cpg.RNG
+
+
+.. py:type:: ArrayLike
+   :canonical: npt.NDArray[np.float64]
+
+
+.. py:data:: SEED
+   :value: 42
+
+
+.. py:data:: RNG
+
+.. py:class:: HopfCPG(num_neurons: int, adjacency_list: dict[int, list[int]], dt: float = 0.02, h: float = 0.1, alpha: float = 1.0)
+
+   .. py:attribute:: num_neurons
+
+
+   .. py:attribute:: dt
+      :value: 0.02
+
+
+
+   .. py:attribute:: alpha
+
+
+   .. py:attribute:: h
+      :value: 0.1
+
+
+
+   .. py:attribute:: adjacency_list
+
+
+   .. py:attribute:: x
+      :type:  ArrayLike
+
+
+   .. py:attribute:: y
+      :type:  ArrayLike
+
+
+   .. py:attribute:: omega
+
+
+   .. py:attribute:: A
+
+
+   .. py:attribute:: phase_diff
+      :type:  ArrayLike
+
+
+   .. py:method:: step() -> tuple[ArrayLike, ArrayLike]
+
+      Perform a single step of the CPG dynamics.
+
+      :returns: * **x** (*np.ndarray[tuple[int, ...], np.dtype[Any]]*) -- The x state of the CPG neurons after the step.
+                * **y** (*np.ndarray[tuple[int, ...], np.dtype[Any]]*) -- The y state of the CPG neurons after the step.
+
+
+
+   .. py:method:: simulate(steps: int) -> tuple[ArrayLike, ArrayLike]
+
+      Run the CPG simulation for a specified number of steps.
+
+      :param steps: The number of simulation steps to perform.
+      :type steps: int
+
+      :returns: * **x_history** (*np.ndarray[tuple[int, ...], np.dtype[Any]]*) -- The history of x states over the simulation.
+                * **y_history** (*np.ndarray[tuple[int, ...], np.dtype[Any]]*) -- The history of y states over the simulation.
+
+
+

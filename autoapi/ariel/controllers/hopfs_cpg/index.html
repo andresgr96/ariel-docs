@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hopfs_cpg &mdash; Ariel 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/ariel_logo.png"/>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="environments" href="../../environments/index.html" />
+    <link rel="prev" title="cpg_with_sensory_feedback" href="../cpg_with_sensory_feedback/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Ariel
+              <img src="../../../../_static/ariel_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing_guide/index.html">Contributing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../extra_info.html">EC Course Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../body_phenotypes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">body_phenotypes</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../environments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">environments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tasks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tasks</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../viz/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">viz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Ariel</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ariel</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">controllers</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hopfs_cpg</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/ariel/controllers/hopfs_cpg/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ariel.controllers.hopfs_cpg">
+<span id="hopfs-cpg"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">hopfs_cpg</span></code><a class="headerlink" href="#module-ariel.controllers.hopfs_cpg" title="Link to this heading"></a></h1>
+<p>Hopf-based Central Pattern Generator (CPG).</p>
+<p>Date:       2025-05-03
+Status:     In progress ⚙️</p>
+<section id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>[1] <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2667379722000353#sec4">https://www.sciencedirect.com/science/article/pii/S2667379722000353#sec4</a></p>
+</div></blockquote>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.controllers.hopfs_cpg.HopfCPG" title="ariel.controllers.hopfs_cpg.HopfCPG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HopfCPG</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.controllers.hopfs_cpg.ArrayLike" title="ariel.controllers.hopfs_cpg.ArrayLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ArrayLike</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ariel.controllers.hopfs_cpg.SEED" title="ariel.controllers.hopfs_cpg.SEED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SEED</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ariel.controllers.hopfs_cpg.RNG" title="ariel.controllers.hopfs_cpg.RNG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RNG</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py type">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.ArrayLike">
+<em class="property"><span class="k"><span class="pre">type</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.controllers.hopfs_cpg.</span></span><span class="sig-name descname"><span class="pre">ArrayLike</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">npt.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">np.float64</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#ArrayLike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.ArrayLike" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.SEED">
+<span class="sig-prename descclassname"><span class="pre">ariel.controllers.hopfs_cpg.</span></span><span class="sig-name descname"><span class="pre">SEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">42</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#SEED"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.SEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.RNG">
+<span class="sig-prename descclassname"><span class="pre">ariel.controllers.hopfs_cpg.</span></span><span class="sig-name descname"><span class="pre">RNG</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#RNG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.RNG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ariel.controllers.hopfs_cpg.</span></span><span class="sig-name descname"><span class="pre">HopfCPG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_neurons</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjacency_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.num_neurons">
+<span class="sig-name descname"><span class="pre">num_neurons</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.num_neurons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.num_neurons" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.dt">
+<span class="sig-name descname"><span class="pre">dt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.02</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.dt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.dt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.alpha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.h">
+<span class="sig-name descname"><span class="pre">h</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.h"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.h" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.adjacency_list">
+<span class="sig-name descname"><span class="pre">adjacency_list</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.adjacency_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.adjacency_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ArrayLike</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ArrayLike</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.y"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.omega"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.omega" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.A">
+<span class="sig-name descname"><span class="pre">A</span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.A"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.A" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.phase_diff">
+<span class="sig-name descname"><span class="pre">phase_diff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ArrayLike</span></em><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.phase_diff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.phase_diff" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ArrayLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ArrayLike</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.step" title="Link to this definition"></a></dt>
+<dd><p>Perform a single step of the CPG dynamics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray[tuple[int, …], np.dtype[Any]]</em>) – The x state of the CPG neurons after the step.</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray[tuple[int, …], np.dtype[Any]]</em>) – The y state of the CPG neurons after the step.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ariel.controllers.hopfs_cpg.HopfCPG.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ArrayLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ArrayLike</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/ariel/controllers/hopfs_cpg.html#HopfCPG.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ariel.controllers.hopfs_cpg.HopfCPG.simulate" title="Link to this definition"></a></dt>
+<dd><p>Run the CPG simulation for a specified number of steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>steps</strong> (<em>int</em>) – The number of simulation steps to perform.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x_history</strong> (<em>np.ndarray[tuple[int, …], np.dtype[Any]]</em>) – The history of x states over the simulation.</p></li>
+<li><p><strong>y_history</strong> (<em>np.ndarray[tuple[int, …], np.dtype[Any]]</em>) – The history of y states over the simulation.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../cpg_with_sensory_feedback/index.html" class="btn btn-neutral float-left" title="cpg_with_sensory_feedback" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../environments/index.html" class="btn btn-neutral float-right" title="environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, 0.1.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
