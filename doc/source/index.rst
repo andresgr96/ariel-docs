@@ -37,7 +37,7 @@ pip install ariel
 
 License
 -------
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Copyright (c) 2025, Ariel. All rights reserved.
 
 .. toctree::
    :maxdepth: 3
