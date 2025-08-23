@@ -1,4 +1,4 @@
-==================
+https://github.com/andresgr96/ariel-docs.git==================
 Contributing guide
 ==================
 If you intend to contribute you may find this guide helpful. Contributions are highly appreciated.

@@ -23,8 +23,8 @@ extensions = ["sphinx.ext.autodoc",
               "sphinx.ext.viewcode",
               "sphinx.ext.doctest",
               "sphinx.ext.duration",
-              "sphinx.ext.autosectionlabel"]
-            #   "autoapi.extension"]
+              "sphinx.ext.autosectionlabel",
+              "myst_parser",]
 
 templates_path = ['_templates']
 exclude_patterns = []

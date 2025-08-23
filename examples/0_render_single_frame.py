@@ -21,7 +21,7 @@ def main() -> None:
     # World
     world = SimpleFlatWorld()
 
-    # Object
+    # Generate the robot body, in this case a simple red cube
     body = mujoco.MjSpec()
     cube = body.worldbody.add_body(name="cube")
     cube.add_geom(

@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Contributing guide" href="contributing_guide/index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Publishing your contribution" href="contributing_guide/index.html" />
         <link rel="prefetch" href="_static/ariel_logo.png" as="image" />
 
     <link rel="shortcut icon" href="_static/ariel_logo.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>EC Course Documentation - Ariel 0.1.0 documentation</title>
+        <title>Evolutionary Computing Course Documentation - Ariel 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -204,8 +204,13 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html">Contributing guide</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">EC Course Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html">Publishing your contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html#developer-installation">Developer installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html#continuous-integration">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html#code-tools">Code tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_guide/index.html#version-control">Version control</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Evolutionary Computing Course Documentation</a></li>
 </ul>
 
 </div>
@@ -226,7 +231,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/extra_info.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/extra_info.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -240,15 +245,109 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="ec-course-documentation">
-<h1>EC Course Documentation<a class="headerlink" href="#ec-course-documentation" title="Link to this heading">¶</a></h1>
-<p>This document provides additional information about how to use the Ariel platform for the EC course.</p>
+          <!-- TODO:
+Complete EC module section
+Fix image not working 
+Hyperlink to gui in starting guide
+Running experiments with GUI
+-->
+<section id="evolutionary-computing-course-documentation">
+<h1>Evolutionary Computing Course Documentation<a class="headerlink" href="#evolutionary-computing-course-documentation" title="Link to this heading">¶</a></h1>
+<p>This section contains information more directed torwards the use of ARIEL for the Evolutionary Computing course. Here you can find installation information, basic functions needed for the assignments, and tips on how some things are done using ARIEL.</p>
+<section id="run-the-example-files">
+<h2>Run the example files<a class="headerlink" href="#run-the-example-files" title="Link to this heading">¶</a></h2>
+<p>After following the normal ARIEL installation guide you can come here for the following steps. We highly recommend you use a virtual environment alongside uv, this will help significantly with requirement conflicts.</p>
+<section id="uv-version">
+<h3>uv version<a class="headerlink" href="#uv-version" title="Link to this heading">¶</a></h3>
+<p>Things are a bit simpler if you are using uv. In your terminal simply run the following commands one by one:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+uv<span class="w"> </span>sync
+uv<span class="w"> </span>run<span class="w"> </span>examples/0_render_single_frame.py<span class="w"> </span>
+</pre></div>
+</div>
+<p>These commands will automatically create the virtual environment, activate it, install all the requirements with their respecitve versions to avoid any conflicts and then run the example file. After you create the venv you can activate it again like you would with a normal one using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Activate<span class="w"> </span>venv:
+./.venv/Scripts/activate
+
+Deactivate<span class="w"> </span>venv:
+./.venv/Scripts/deactivate
+</pre></div>
+</div>
+</section>
+<section id="pip-version">
+<h3>Pip version<a class="headerlink" href="#pip-version" title="Link to this heading">¶</a></h3>
+<p>If you are using pip then you can create a normal virtual environment with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>C:/path/to/new/virtual/environment
+</pre></div>
+</div>
+<p>or create it with the IDE you are using. For example, in VS Code just press <code class="docutils literal notranslate"><span class="pre">ctrl+shift+p</span></code> and select <code class="docutils literal notranslate"><span class="pre">Python:</span> <span class="pre">Create</span> <span class="pre">Environment</span></code>. Then run one of the example files in the examples module. For example <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/0_render_single_frame.py</span></code>, this file starts a simulation and takes a screenshot of a single frame of a red cube. It should look something like this:
+<img alt="image" src="ariel-docs/doc/resources/example_image.png" /></p>
+</section>
+</section>
+<section id="basic-ariel-functions">
+<h2>Basic ARIEL Functions<a class="headerlink" href="#basic-ariel-functions" title="Link to this heading">¶</a></h2>
+<p>In this section we will present some of the basic functionalities of ARIEL.</p>
+<section id="ec-module">
+<h3>EC Module<a class="headerlink" href="#ec-module" title="Link to this heading">¶</a></h3>
+<p>To make implementation easier, ARIEL has many built in evolutionary operators (much like <a class="reference external" href="https://deap.readthedocs.io/en/master/">DEAP</a>) for you to use in your work. This happens via the EC module.</p>
+<p>The functions of this module can be found under:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ariel</span><span class="o">.</span><span class="p">[</span><span class="n">INSERT_EC_MODULE_HERE</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="starting-guide">
+<h2>Starting Guide<a class="headerlink" href="#starting-guide" title="Link to this heading">¶</a></h2>
+<p>The starting guide intends to help you start your first ARIEL experiment. This can be done in two ways. By running the experiments manually from a python file or using the GUI [<code class="docutils literal notranslate"><span class="pre">HYPERLINK</span> <span class="pre">TO</span> <span class="pre">GUI</span> <span class="pre">PAGE</span> <span class="pre">ON</span> <span class="pre">THE</span> <span class="pre">DOCS</span></code>].</p>
+<section id="run-experiments-manually">
+<h3>Run Experiments Manually<a class="headerlink" href="#run-experiments-manually" title="Link to this heading">¶</a></h3>
+<p>To run an experiment manually you just need to define all the necessary parameters and run the file. Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Third-party libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mujoco</span>
+
+<span class="c1"># Local libraries</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ariel.environments.simple_flat_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleFlatWorld</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ariel.utils.renderers</span><span class="w"> </span><span class="kn">import</span> <span class="n">single_frame_renderer</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Entry point.&quot;&quot;&quot;</span>
+    <span class="c1"># World</span>
+    <span class="n">world</span> <span class="o">=</span> <span class="n">SimpleFlatWorld</span><span class="p">()</span>
+
+    <span class="c1"># Object</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjSpec</span><span class="p">()</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">worldbody</span><span class="o">.</span><span class="n">add_body</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cube&quot;</span><span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_geom</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">mujoco</span><span class="o">.</span><span class="n">mjtGeom</span><span class="o">.</span><span class="n">mjGEOM_BOX</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+        <span class="n">rgba</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add object to world</span>
+    <span class="n">world</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Generate the model and data</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjModel</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjData</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+    <span class="c1"># Render a single frame</span>
+    <span class="n">single_frame_renderer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="run-experiments-using-the-gui">
+<h3>Run Experiments Using the GUI<a class="headerlink" href="#run-experiments-using-the-gui" title="Link to this heading">¶</a></h3>
+<p>INSERT SCREENSHOT OF GUI</p>
+<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA WHAT IS A GUI!!!!!</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -264,7 +363,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Contributing guide</div>
+                <div class="title">Publishing your contribution</div>
                 
               </div>
             </a>
@@ -286,8 +385,40 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Evolutionary Computing Course Documentation</a><ul>
+<li><a class="reference internal" href="#run-the-example-files">Run the example files</a><ul>
+<li><a class="reference internal" href="#uv-version">uv version</a></li>
+<li><a class="reference internal" href="#pip-version">Pip version</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-ariel-functions">Basic ARIEL Functions</a><ul>
+<li><a class="reference internal" href="#ec-module">EC Module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#starting-guide">Starting Guide</a><ul>
+<li><a class="reference internal" href="#run-experiments-manually">Run Experiments Manually</a></li>
+<li><a class="reference internal" href="#run-experiments-using-the-gui">Run Experiments Using the GUI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

@@ -7,7 +7,7 @@
         <link rel="prefetch" href="../_static/ariel_logo.png" as="image" />
 
     <link rel="shortcut icon" href="../_static/ariel_logo.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Contributing guide - Ariel 0.1.0 documentation</title>
+        <title>Publishing your contribution - Ariel 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -204,7 +204,12 @@
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction_to_modular_robots/index.html">Introduction to modular robots</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contributing guide</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Publishing your contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#developer-installation">Developer installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#code-tools">Code tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#version-control">Version control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extra_info.html">EC Course Documentation</a></li>
 </ul>
 
@@ -240,17 +245,18 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="contributing-guide">
-<h1>Contributing guide<a class="headerlink" href="#contributing-guide" title="Link to this heading">¶</a></h1>
-<p>If you intend to contribute you may find this guide helpful. Contributions are highly appreciated.</p>
+          <p><a class="reference external" href="https://github.com/andresgr96/ariel-docs.git==================">https://github.com/andresgr96/ariel-docs.git==================</a>
+Contributing guide
+==================
+If you intend to contribute you may find this guide helpful. Contributions are highly appreciated.</p>
 <section id="publishing-your-contribution">
-<h2>Publishing your contribution<a class="headerlink" href="#publishing-your-contribution" title="Link to this heading">¶</a></h2>
+<h1>Publishing your contribution<a class="headerlink" href="#publishing-your-contribution" title="Link to this heading">¶</a></h1>
 <p>If you added something to Ariel that you would like to share with other people, you can do so by creating a <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a> (PR) on <a class="reference external" href="https://github.com/ci-group/Ariel/pulls">GitHub</a>.
 The first time you make a contribution to a Ariel package your PR should add your name to the <code class="docutils literal notranslate"><span class="pre">authors</span></code> list in that package’s <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
 <strong>Only open PRs on the</strong> <code class="docutils literal notranslate"><span class="pre">development</span></code> <strong>-branch!</strong> And make sure that only your commits are present, otherwise do a rebase.</p>
@@ -263,18 +269,18 @@ For a guideline what can depend on what, look at the package diagram on the main
 </ul>
 </section>
 <section id="developer-installation">
-<h2>Developer installation<a class="headerlink" href="#developer-installation" title="Link to this heading">¶</a></h2>
+<h1>Developer installation<a class="headerlink" href="#developer-installation" title="Link to this heading">¶</a></h1>
 <p>The normal installation guide applies. You should definitely use <span class="xref std std-ref">editable mode</span>.
 Using the <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code> allows you to quickly install all packages in editable mode, by executing: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements_dev.txt</span></code>.
 If you want to uninstall all Ariel packages, you can use <code class="docutils literal notranslate"><span class="pre">./uninstall.sh</span></code>, which uninstall all packages like <code class="docutils literal notranslate"><span class="pre">Ariel*</span></code>.</p>
 </section>
 <section id="continuous-integration">
-<h2>Continuous integration<a class="headerlink" href="#continuous-integration" title="Link to this heading">¶</a></h2>
+<h1>Continuous integration<a class="headerlink" href="#continuous-integration" title="Link to this heading">¶</a></h1>
 <p>Github Actions is used for continuous integration(CI). You can find plenty of resources about the CI online. It is located in the Ariel directory at <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code>.
 You cannot directly run the CI configuration locally, but scripts are available to run the tools.</p>
 </section>
 <section id="code-tools">
-<h2>Code tools<a class="headerlink" href="#code-tools" title="Link to this heading">¶</a></h2>
+<h1>Code tools<a class="headerlink" href="#code-tools" title="Link to this heading">¶</a></h1>
 <p>Ariel code quality is checked by a variety of tools. See the <code class="docutils literal notranslate"><span class="pre">codetools</span></code> directory.
 The CI runs these tools automatically.
 A shorthand for running the tools and applying as many automatic fixes as possible is <code class="docutils literal notranslate"><span class="pre">./codetools/fix_all.sh</span></code>.
@@ -319,16 +325,15 @@ Make sure to regularly run the tools during development (at least mypy), as they
 </div>
 </section>
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h2>
+<h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h1>
 <p>This documentation is automatically built by the CI and uploaded to github pages.
 Code is analyzed and an API reference is generated programmatically.
 You can compile the documentation using the Makefile available at <code class="docutils literal notranslate"><span class="pre">./docs</span></code> using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-C</span> <span class="pre">docs</span> <span class="pre">html</span></code>.</p>
 </section>
 <section id="version-control">
-<h2>Version control<a class="headerlink" href="#version-control" title="Link to this heading">¶</a></h2>
+<h1>Version control<a class="headerlink" href="#version-control" title="Link to this heading">¶</a></h1>
 <p>The codebase is managed through Git. We strictly enforce a <a class="reference external" href="https://www.bitsnbites.eu/a-tidy-linear-git-history/">linear history</a>.
 Releases are according to <a class="reference external" href="https://semver.org/">Semantic Versioning</a>.</p>
-</section>
 </section>
 
         </article>
@@ -374,32 +379,8 @@ Releases are according to <a class="reference external" href="https://semver.org
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Contributing guide</a><ul>
-<li><a class="reference internal" href="#publishing-your-contribution">Publishing your contribution</a></li>
-<li><a class="reference internal" href="#developer-installation">Developer installation</a></li>
-<li><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
-<li><a class="reference internal" href="#code-tools">Code tools</a></li>
-<li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#version-control">Version control</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
