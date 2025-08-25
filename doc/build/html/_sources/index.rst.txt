@@ -46,3 +46,4 @@ Copyright (c) 2025, Ariel. All rights reserved.
    Introduction to modular robots <introduction_to_modular_robots/index>
    Contributing guide <contributing_guide/index>
    extra_info.md
+   GUI.md

@@ -88,8 +88,8 @@ def main() -> None:
 ```
 
 ### Run Experiments Using the GUI
+For a more detailed explanation on how the GUI works and how to use it check out the {doc}`GUI`
 
 INSERT SCREENSHOT OF GUI
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA WHAT IS A GUI!!!!!
-
